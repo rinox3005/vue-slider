@@ -22,7 +22,7 @@
           <!-- main image slider -->
           <div
             class="item"
-            v-for="(game, index) in games"
+            v-for="(_, index) in games"
             v-show="currentIndex === index"
           >
             <img :src="games[index].image" alt="" />
@@ -40,7 +40,7 @@
             <div
               class="thumb"
               :class="activeThumb(index)"
-              v-for="(game, index) in games"
+              v-for="(_, index) in games"
             >
               <img
                 :src="games[index].image"

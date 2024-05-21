@@ -1,8 +1,11 @@
+// includo vue nel mio file js
+
 const { createApp } = Vue;
 
 createApp({
   data() {
     return {
+      //array di oggetti di riferimento per popolare lo slider
       games: [
         {
           image: "img/01.webp",
@@ -30,20 +33,24 @@ createApp({
           text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
         },
       ],
+      //setto il valore di currentIndex a 0
       currentIndex: 0,
+      //setto il valore di interval a null per riassegnarlo successivamente
       interval: null,
     };
   },
 
+  //quando monto l'app mi richiamo la funzione che avvia il carosello in automatico dopo 3 sec
   mounted() {
     this.startCarousel();
   },
-
+  //prima di smontare l'app mi richiamo la funzione che interrompe il carosello
   beforeUnmount() {
     this.stopCarousel();
   },
 
   methods: {
+    // funzione che gestisce il bottone next e che permette di ciclare e con l'else resettare il ciclo e ripartire creando un ciclo infinito
     nextImg() {
       if (this.currentIndex < this.games.length - 1) {
         this.currentIndex++;
@@ -51,6 +58,7 @@ createApp({
         this.currentIndex = 0;
       }
     },
+    // funzione che gestisce il bottone prev e che permette di ciclare e con l'else resettare il ciclo e ripartire creando un ciclo infinito
     prevImg() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
@@ -58,6 +66,7 @@ createApp({
         this.currentIndex = this.games.length - 1;
       }
     },
+    // gestisco la classe active per le thumb e i suoi casi
     activeThumb(index) {
       if (this.currentIndex === index) {
         return "active";
@@ -65,12 +74,15 @@ createApp({
         return "";
       }
     },
+    // mostro l'immagine del carosello corrispondente alla thumb cliccata
     setActiveImage(index) {
       this.currentIndex = index;
     },
+    // setto lo start dell'interval e dopo quanto tempo deve avvenire
     startCarousel() {
       this.interval = setInterval(this.nextImg, 3000);
     },
+    // setto lo stop del setInterval e resetto interval a null
     stopCarousel() {
       if (this.interval) {
         clearInterval(this.interval);
@@ -78,4 +90,5 @@ createApp({
       }
     },
   },
+  // monto l'app nel mio div con id = 'app'
 }).mount("#app");
