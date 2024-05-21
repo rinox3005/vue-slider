@@ -31,11 +31,18 @@ createApp({
         },
       ],
       currentIndex: 0,
+      interval: null,
     };
   },
+
   mounted() {
     this.startCarousel();
   },
+
+  beforeUnmount() {
+    this.stopCarousel();
+  },
+
   methods: {
     nextImg() {
       if (this.currentIndex < this.games.length - 1) {
@@ -62,7 +69,13 @@ createApp({
       this.currentIndex = index;
     },
     startCarousel() {
-      setInterval(this.nextImg, 3000);
+      this.interval = setInterval(this.nextImg, 3000);
+    },
+    stopCarousel() {
+      if (this.interval) {
+        clearInterval(this.interval);
+        this.interval = null;
+      }
     },
   },
 }).mount("#app");

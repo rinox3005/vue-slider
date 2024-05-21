@@ -13,7 +13,12 @@
     <!-- my app -->
     <div id="app" v-cloak>
       <div class="container">
-        <div class="slider-wrapper" tabindex="0">
+        <div
+          class="slider-wrapper"
+          tabindex="0"
+          @mouseenter="stopCarousel"
+          @mouseleave="startCarousel"
+        >
           <!-- main image slider -->
           <div
             class="item"
