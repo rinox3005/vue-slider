@@ -13,22 +13,21 @@
     <div id="app">
       <div class="container">
         <div class="slider-wrapper" tabindex="0">
-          <div class="item">
-            <img src="img/01.webp" alt="Spiderman" />
+          <div
+            class="item"
+            v-for="(game, index) in games"
+            v-show="currentIndex === index"
+          >
+            <img :src="games[index].image" alt="" />
             <div class="text">
-              <h3>Spiderman</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et
-                temporibus voluptatum suscipit tempore aliquid deleniti aut
-                veniam inventore eligendi ex ad ullam, cumque provident totam
-                omnis, magnam dolores dolorum corporis.
-              </p>
+              <h3>{{games[index].title}}</h3>
+              <p>{{games[index].text}}</p>
             </div>
           </div>
 
           <div class="thumbs">
-            <div class="prev"></div>
-            <div class="next"></div>
+            <div class="prev" @click="prevImg"></div>
+            <div class="next" @click="nextImg"></div>
             <div class="thumb active">
               <img src="img/01.webp" alt="Svezia" />
             </div>
