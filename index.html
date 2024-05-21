@@ -10,9 +10,11 @@
   </head>
 
   <body>
+    <!-- my app -->
     <div id="app" v-cloak>
       <div class="container">
         <div class="slider-wrapper" tabindex="0">
+          <!-- main image slider -->
           <div
             class="item"
             v-for="(game, index) in games"
@@ -26,8 +28,10 @@
           </div>
 
           <div class="thumbs">
+            <!-- buttons -->
             <div class="prev" @click="prevImg"></div>
             <div class="next" @click="nextImg"></div>
+            <!-- thumbs -->
             <div
               class="thumb"
               :class="activeThumb(index)"
