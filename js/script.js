@@ -31,6 +31,7 @@ createApp({
         },
       ],
       currentIndex: 0,
+      activeClass: "active",
     };
   },
 
@@ -47,6 +48,13 @@ createApp({
         this.currentIndex--;
       } else {
         this.currentIndex = this.games.length - 1;
+      }
+    },
+    activeThumb(index) {
+      if (this.currentIndex === index) {
+        return "active";
+      } else {
+        return "";
       }
     },
   },
