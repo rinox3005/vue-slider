@@ -38,11 +38,15 @@ createApp({
     nextImg() {
       if (this.currentIndex < this.games.length - 1) {
         this.currentIndex++;
+      } else {
+        this.currentIndex = 0;
       }
     },
     prevImg() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
+      } else {
+        this.currentIndex = this.games.length - 1;
       }
     },
   },
