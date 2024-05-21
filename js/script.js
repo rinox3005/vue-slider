@@ -33,7 +33,9 @@ createApp({
       currentIndex: 0,
     };
   },
-
+  mounted() {
+    this.startCarousel();
+  },
   methods: {
     nextImg() {
       if (this.currentIndex < this.games.length - 1) {
@@ -58,6 +60,9 @@ createApp({
     },
     setActiveImage(index) {
       this.currentIndex = index;
+    },
+    startCarousel() {
+      setInterval(this.nextImg, 3000);
     },
   },
 }).mount("#app");
