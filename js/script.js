@@ -31,7 +31,6 @@ createApp({
         },
       ],
       currentIndex: 0,
-      activeClass: "active",
     };
   },
 
@@ -56,6 +55,9 @@ createApp({
       } else {
         return "";
       }
+    },
+    setActiveImage(index) {
+      this.currentIndex = index;
     },
   },
 }).mount("#app");

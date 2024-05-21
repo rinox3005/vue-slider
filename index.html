@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <div id="app">
+    <div id="app" v-cloak>
       <div class="container">
         <div class="slider-wrapper" tabindex="0">
           <div
@@ -33,7 +33,11 @@
               :class="activeThumb(index)"
               v-for="(game, index) in games"
             >
-              <img :src="games[index].image" alt="" />
+              <img
+                :src="games[index].image"
+                alt=""
+                @click="setActiveImage(index)"
+              />
             </div>
           </div>
         </div>
