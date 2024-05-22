@@ -1,5 +1,6 @@
-// includo vue nel mio file js
+"use strict";
 
+// includo vue nel mio file js
 const { createApp } = Vue;
 
 createApp({

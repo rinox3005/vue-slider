@@ -22,13 +22,13 @@
           <!-- main image slider -->
           <div
             class="item"
-            v-for="(_, index) in games"
+            v-for="(game, index) in games"
             v-show="currentIndex === index"
           >
-            <img :src="games[index].image" alt="" />
+            <img :src="game.image" :alt="game.title" />
             <div class="text">
-              <h3>{{games[index].title}}</h3>
-              <p>{{games[index].text}}</p>
+              <h3>{{game.title}}</h3>
+              <p>{{game.text}}</p>
             </div>
           </div>
 
@@ -40,11 +40,11 @@
             <div
               class="thumb"
               :class="activeThumb(index)"
-              v-for="(_, index) in games"
+              v-for="(thumb, index) in games"
             >
               <img
-                :src="games[index].image"
-                alt=""
+                :src="thumb.image"
+                :alt="thumb.title"
                 @click="setActiveImage(index)"
               />
             </div>
@@ -55,7 +55,7 @@
     <!-- vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- js -->
-    <script src="./js/script.js"></script>
+    <script src="./js/main.js"></script>
     <!-- /js -->
   </body>
 </html>
